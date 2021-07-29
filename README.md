@@ -13,3 +13,9 @@ I first got my interest in [Three.js](https://threejs.org/) when I saw Bruno Sim
 ### Technology
 
 [Three.js](https://threejs.org/) is a JavaScript library that helps create & render animated 3D graphics in a web browser through WebGL.
+
+## How to run this project
+
+1. `npm install`
+2. `npm run start-dev` to start the build process and server
+3. Navigate to [localhost:8080](http://localhost:8080), and you should see a green 3D cube rotating in the browser : )
