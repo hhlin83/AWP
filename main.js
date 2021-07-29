@@ -1,4 +1,4 @@
-// import * as THREE from './three';
+/* Simple example to create a scene & render a 3D cube in browser */
 
 // Three things required to display anything w/ three.js: scene, camera & renderer
 const scene = new THREE.Scene();
