@@ -1,4 +1,4 @@
-/* Simple example to create a scene & render a 3D cube in browser */
+/* Simple example to create a scene & render 3D graphics in browser */
 
 // Import modules
 import * as THREE from 'three';
@@ -20,24 +20,35 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Add a cube to scene
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
+const cubeGeometry = new THREE.BoxGeometry();
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube); // added at coordinate (0, 0, 0)
-camera.position.z = 5; // move camera further from cube
 
-// Ask browser to render the scene every frame
-// function animate() {
-//   requestAnimationFrame(animate);
-//   renderer.render(scene, camera);
-// }
-// animate();
+// Add a line to scene
+const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+const points = [
+  new THREE.Vector3(-10, 0, 0),
+  new THREE.Vector3(0, 10, 0),
+  new THREE.Vector3(10, 0, 0),
+];
+const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+const line = new THREE.Line(lineGeometry, lineMaterial);
+scene.add(line);
 
-// Animate the cube
+// Set camera position & view angle
+camera.position.set(0, -7, 7);
+camera.lookAt(0, 0, 0);
+
+// Render the scene
 function animate() {
   requestAnimationFrame(animate);
+
+  // animate the cube
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
+
   renderer.render(scene, camera);
 }
+
 animate();
