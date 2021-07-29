@@ -1,5 +1,8 @@
 /* Simple example to create a scene & render a 3D cube in browser */
 
+// Import modules
+import * as THREE from 'three';
+
 // Three things required to display anything w/ three.js: scene, camera & renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(

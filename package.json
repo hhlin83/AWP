@@ -1,9 +1,12 @@
 {
   "name": "async-week-project",
   "version": "1.0.0",
-  "description": "Small project playing around with Three.js",
-  "main": "main.js",
+  "description": "",
+  "main": "./src/main.js",
   "scripts": {
+    "start-dev": "npm run build & npm run start-server",
+    "start-server": "webpack serve --mode development",
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,5 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "three": "^0.131.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.47.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   }
 }
