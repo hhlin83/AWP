@@ -20,14 +20,22 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight, false);
 
 // Add a cube to scene
-const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-const cubeMaterial = new THREE.MeshStandardMaterial({
-  color: 0x00ff00,
-  roughness: 0,
-  metalness: 0.9,
-});
-const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cube); // added at coordinate (0, 0, 0)
+// const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
+// const cubeMaterial = new THREE.MeshStandardMaterial({
+//   color: 0x00ff00,
+//   roughness: 0,
+//   metalness: 0.9,
+// });
+// const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+// scene.add(cube); // added at coordinate (0, 0, 0)
+
+// Add texture to a cube
+const cubeTexture = new THREE.TextureLoader().load('/img/baby-yoda.png');
+const cube = new THREE.Mesh(
+  new THREE.BoxGeometry(2, 2, 2),
+  new THREE.MeshBasicMaterial({ map: cubeTexture })
+);
+scene.add(cube);
 
 // Add a line to scene
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
