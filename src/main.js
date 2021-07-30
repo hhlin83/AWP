@@ -11,13 +11,12 @@ const camera = new THREE.PerspectiveCamera(
   0.1, // near clipping plane
   1000 // far clipping plane
 );
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#test-canvas'),
+});
 
 // Set width & height to render the scene
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-// Add the renderer to DOM (using <canvas>)
-document.body.appendChild(renderer.domElement);
+renderer.setSize(window.innerWidth, window.innerHeight, false);
 
 // Add a cube to scene
 const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
