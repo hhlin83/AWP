@@ -32,7 +32,7 @@ scene.add(cube); // added at coordinate (0, 0, 0)
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
 const points = [
   new THREE.Vector3(-10, 0, 0),
-  new THREE.Vector3(0, 10, 0),
+  new THREE.Vector3(0, 0, -10),
   new THREE.Vector3(10, 0, 0),
 ];
 const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
@@ -41,14 +41,18 @@ scene.add(line);
 
 // Add lights to scene
 const pointLight = new THREE.PointLight(0xffffff, 10, 1000);
-pointLight.position.set(2, 5, 10);
-scene.add(pointLight);
+pointLight.position.set(2, 10, 5);
 
-const ambientLight = new THREE.AmbientLight(0x404040);
-scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight);
+
+// Add helpers to see light position & space grid
+const lightHelper = new THREE.PointLightHelper(pointLight);
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper);
 
 // Set camera position & view angle
-camera.position.set(0, -7, 7);
+camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 
 // Render the scene
