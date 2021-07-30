@@ -1,6 +1,6 @@
 # Async Week Project
 
-Link to the project video: TBD
+Link to the project video: https://youtu.be/svS9VH9r6Jo
 
 ## Description
 
