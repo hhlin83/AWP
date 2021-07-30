@@ -2,6 +2,7 @@
 
 // Import modules
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // Three things required to display anything w/ three.js: scene, camera & renderer
 const scene = new THREE.Scene();
@@ -55,6 +56,9 @@ scene.add(lightHelper, gridHelper);
 camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 
+// Add camera controls (triggered by mouse events)
+const controls = new OrbitControls(camera, renderer.domElement);
+
 // Render the scene
 function animate() {
   requestAnimationFrame(animate);
@@ -62,6 +66,9 @@ function animate() {
   // animate the cube
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
+
+  // update camera controls
+  controls.update();
 
   renderer.render(scene, camera);
 }
