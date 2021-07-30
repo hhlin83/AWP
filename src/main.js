@@ -82,6 +82,7 @@ camera.lookAt(0, 0, 0);
 
 // Add camera controls (triggered by mouse events)
 const cameraControls = new OrbitControls(camera, renderer.domElement);
+cameraControls.target = new THREE.Vector3(0, 100, 0);
 
 // Add dragging controls over objects
 // const dragControls = new DragControls([cube], camera, renderer.domElement);
