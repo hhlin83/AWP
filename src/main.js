@@ -21,7 +21,11 @@ document.body.appendChild(renderer.domElement);
 
 // Add a cube to scene
 const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+const cubeMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ff00,
+  roughness: 0,
+  metalness: 0.9,
+});
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube); // added at coordinate (0, 0, 0)
 
@@ -38,7 +42,7 @@ scene.add(line);
 
 // Add lights to scene
 const pointLight = new THREE.PointLight(0xffffff, 10, 1000);
-pointLight.position.set(10, 10, 10);
+pointLight.position.set(2, 5, 10);
 scene.add(pointLight);
 
 const ambientLight = new THREE.AmbientLight(0x404040);
