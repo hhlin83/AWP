@@ -22,22 +22,23 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight, false);
 
 // Add a cube to scene
-// const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-// const cubeMaterial = new THREE.MeshStandardMaterial({
-//   color: 0x00ff00,
-//   roughness: 0,
-//   metalness: 0.9,
-// });
-// const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-// scene.add(cube); // added at coordinate (0, 0, 0)
+const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
+const cubeMaterial = new THREE.MeshStandardMaterial({
+  color: 0x00ff00,
+  roughness: 0,
+  metalness: 0.9,
+});
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+scene.add(cube); // added at coordinate (0, 0, 0)
 
 // Add texture to a cube
 const cubeTexture = new THREE.TextureLoader().load('/img/baby-yoda.png');
-const cube = new THREE.Mesh(
+const cube2 = new THREE.Mesh(
   new THREE.BoxGeometry(2, 2, 2),
   new THREE.MeshBasicMaterial({ map: cubeTexture })
 );
-scene.add(cube);
+cube2.position.set(0, 5, 0);
+scene.add(cube2);
 
 // Add a line to scene
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
@@ -82,7 +83,7 @@ camera.lookAt(0, 0, 0);
 
 // Add camera controls (triggered by mouse events)
 const cameraControls = new OrbitControls(camera, renderer.domElement);
-cameraControls.target = new THREE.Vector3(0, 100, 0);
+// cameraControls.target = new THREE.Vector3(0, 100, 0);
 
 // Add dragging controls over objects
 // const dragControls = new DragControls([cube], camera, renderer.domElement);
@@ -100,6 +101,8 @@ function animate() {
   // animate the cube
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
+  cube2.rotation.x += 0.01;
+  cube2.rotation.y += 0.01;
 
   // update camera controls
   cameraControls.update();
